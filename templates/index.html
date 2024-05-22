@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Questionário - Comparação de Mapas</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
-<!--     <style>
+    <style>
         body {
             background-color: #121212;
             color: #FFFFFF;
@@ -59,7 +59,7 @@
         .intro h2 {
             margin-top: 0;
         }
-    </style> -->
+    </style>
 </head>
 <body>
     <div class="container">
@@ -87,13 +87,8 @@
             </ul>
             <p>Recomendamos que você gaste cerca de 20 a 30 segundos analisando cada par de mapas antes de fazer sua escolha. Isso garantirá que sua resposta seja bem informada e refletirá sua verdadeira opinião.</p>
         </div>
-
+        
         <form method="POST" action="/">
-            <div class="question">
-                <label for="name">Nome:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-
             <div class="question">
                 <label>Qual é o seu nível de familiaridade com leitura de mapas e generalização cartográfica?</label>
                 <select id="familiarity" name="familiarity">
@@ -111,8 +106,8 @@
                     <a data-fancybox="gallery" data-caption="Modo Escuro" href="{{ url_for('static', filename='modo_escuro.jpg') }}">
                         <img src="{{ url_for('static', filename='modo_escuro.jpg') }}" alt="Modo Escuro">
                     </a>
-                    <a data-fancybox="gallery" data-caption="Modo Escuro 30%" href="{{ url_for('static', filename='modo_escuro_30.jpg') }}">
-                        <img src="{{ url_for('static', filename='modo_escuro_30.jpg') }}" alt="Modo Escuro 30%">
+                    <a data-fancybox="gallery" data-caption="Modo Escuro 30%" href="{{ url_for('static', filename='modo_escuro_30%.jpg') }}">
+                        <img src="{{ url_for('static', filename='modo_escuro_30%.jpg') }}" alt="Modo Escuro 30%">
                     </a>
                 </div>
                 <label for="escuro_vs_escuro_30">De 1 a 5, quanto você prefere o mapa Modo Escuro 30% em relação ao Modo Escuro?</label>
@@ -124,14 +119,15 @@
                     <option value="5">5 - Prefiro muito mais o Modo Escuro 30%</option>
                 </select>
             </div>
+
             <div class="question">
                 <label>Comparação entre mapas em modo escuro (Sem generalização e 40%):</label>
                 <div class="image-container">
                     <a data-fancybox="gallery" data-caption="Modo Escuro" href="{{ url_for('static', filename='modo_escuro.jpg') }}">
                         <img src="{{ url_for('static', filename='modo_escuro.jpg') }}" alt="Modo Escuro">
                     </a>
-                    <a data-fancybox="gallery" data-caption="Modo Escuro 40%" href="{{ url_for('static', filename='modo_escuro_40.jpg') }}">
-                        <img src="{{ url_for('static', filename='modo_escuro_40.jpg') }}" alt="Modo Escuro 40%">
+                    <a data-fancybox="gallery" data-caption="Modo Escuro 40%" href="{{ url_for('static', filename='modo_escuro_40%.jpg') }}">
+                        <img src="{{ url_for('static', filename='modo_escuro_40%.jpg') }}" alt="Modo Escuro 40%">
                     </a>
                 </div>
                 <label for="escuro_vs_escuro_40">De 1 a 5, quanto você prefere o mapa Modo Escuro 40% em relação ao Modo Escuro?</label>
@@ -143,14 +139,15 @@
                     <option value="5">5 - Prefiro muito mais o Modo Escuro 40%</option>
                 </select>
             </div>
+
             <div class="question">
                 <label>Comparação entre mapas em modo escuro (30% e 40%):</label>
                 <div class="image-container">
-                    <a data-fancybox="gallery" data-caption="Modo Escuro 30%" href="{{ url_for('static', filename='modo_escuro_30.jpg') }}">
-                        <img src="{{ url_for('static', filename='modo_escuro_30.jpg') }}" alt="Modo Escuro 30%">
+                    <a data-fancybox="gallery" data-caption="Modo Escuro 30%" href="{{ url_for('static', filename='modo_escuro_30%.jpg') }}">
+                        <img src="{{ url_for('static', filename='modo_escuro_30%.jpg') }}" alt="Modo Escuro 30%">
                     </a>
-                    <a data-fancybox="gallery" data-caption="Modo Escuro 40%" href="{{ url_for('static', filename='modo_escuro_40.jpg') }}">
-                        <img src="{{ url_for('static', filename='modo_escuro_40.jpg') }}" alt="Modo Escuro 40%">
+                    <a data-fancybox="gallery" data-caption="Modo Escuro 40%" href="{{ url_for('static', filename='modo_escuro_40%.jpg') }}">
+                        <img src="{{ url_for('static', filename='modo_escuro_40%.jpg') }}" alt="Modo Escuro 40%">
                     </a>
                 </div>
                 <label for="escuro_30_vs_escuro_40">De 1 a 5, quanto você prefere o mapa Modo Escuro 40% em relação ao Modo Escuro 30%?</label>
@@ -162,14 +159,15 @@
                     <option value="5">5 - Prefiro muito mais o Modo Escuro 40%</option>
                 </select>
             </div>
+
             <div class="question">
                 <label>Comparação entre mapas em modo claro (Sem generalização e 30%):</label>
                 <div class="image-container">
                     <a data-fancybox="gallery" data-caption="Modo Claro" href="{{ url_for('static', filename='modo_claro.jpg') }}">
                         <img src="{{ url_for('static', filename='modo_claro.jpg') }}" alt="Modo Claro">
                     </a>
-                    <a data-fancybox="gallery" data-caption="Modo Claro 30%" href="{{ url_for('static', filename='modo_claro_30.jpg') }}">
-                        <img src="{{ url_for('static', filename='modo_claro_30.jpg') }}" alt="Modo Claro 30%">
+                    <a data-fancybox="gallery" data-caption="Modo Claro 30%" href="{{ url_for('static', filename='modo_claro_30%.jpg') }}">
+                        <img src="{{ url_for('static', filename='modo_claro_30%.jpg') }}" alt="Modo Claro 30%">
                     </a>
                 </div>
                 <label for="claro_vs_claro_30">De 1 a 5, quanto você prefere o mapa Modo Claro 30% em relação ao Modo Claro?</label>
@@ -181,14 +179,15 @@
                     <option value="5">5 - Prefiro muito mais o Modo Claro 30%</option>
                 </select>
             </div>
+
             <div class="question">
                 <label>Comparação entre mapas em modo claro (Sem generalização e 40%):</label>
                 <div class="image-container">
                     <a data-fancybox="gallery" data-caption="Modo Claro" href="{{ url_for('static', filename='modo_claro.jpg') }}">
                         <img src="{{ url_for('static', filename='modo_claro.jpg') }}" alt="Modo Claro">
                     </a>
-                    <a data-fancybox="gallery" data-caption="Modo Claro 40%" href="{{ url_for('static', filename='modo_claro_40.jpg') }}">
-                        <img src="{{ url_for('static', filename='modo_claro_40.jpg') }}" alt="Modo Claro 40%">
+                    <a data-fancybox="gallery" data-caption="Modo Claro 40%" href="{{ url_for('static', filename='modo_claro_40%.jpg') }}">
+                        <img src="{{ url_for('static', filename='modo_claro_40%.jpg') }}" alt="Modo Claro 40%">
                     </a>
                 </div>
                 <label for="claro_vs_claro_40">De 1 a 5, quanto você prefere o mapa Modo Claro 40% em relação ao Modo Claro?</label>
@@ -200,14 +199,15 @@
                     <option value="5">5 - Prefiro muito mais o Modo Claro 40%</option>
                 </select>
             </div>
+
             <div class="question">
                 <label>Comparação entre mapas em modo claro (30% e 40%):</label>
                 <div class="image-container">
-                    <a data-fancybox="gallery" data-caption="Modo Claro 30%" href="{{ url_for('static', filename='modo_claro_30.jpg') }}">
-                        <img src="{{ url_for('static', filename='modo_claro_30.jpg') }}" alt="Modo Claro 30%">
+                    <a data-fancybox="gallery" data-caption="Modo Claro 30%" href="{{ url_for('static', filename='modo_claro_30%.jpg') }}">
+                        <img src="{{ url_for('static', filename='modo_claro_30%.jpg') }}" alt="Modo Claro 30%">
                     </a>
-                    <a data-fancybox="gallery" data-caption="Modo Claro 40%" href="{{ url_for('static', filename='modo_claro_40.jpg') }}">
-                        <img src="{{ url_for('static', filename='modo_claro_40.jpg') }}" alt="Modo Claro 40%">
+                    <a data-fancybox="gallery" data-caption="Modo Claro 40%" href="{{ url_for('static', filename='modo_claro_40%.jpg') }}">
+                        <img src="{{ url_for('static', filename='modo_claro_40%.jpg') }}" alt="Modo Claro 40%">
                     </a>
                 </div>
                 <label for="claro_30_vs_claro_40">De 1 a 5, quanto você prefere o mapa Modo Claro 40% em relação ao Modo Claro 30%?</label>
@@ -219,14 +219,15 @@
                     <option value="5">5 - Prefiro muito mais o Modo Claro 40%</option>
                 </select>
             </div>
+
             <div class="question">
                 <label>Comparação entre modos escuro e claro (30%):</label>
                 <div class="image-container">
-                    <a data-fancybox="gallery" data-caption="Modo Escuro 30%" href="{{ url_for('static', filename='modo_escuro_30.jpg') }}">
-                        <img src="{{ url_for('static', filename='modo_escuro_30.jpg') }}" alt="Modo Escuro 30%">
+                    <a data-fancybox="gallery" data-caption="Modo Escuro 30%" href="{{ url_for('static', filename='modo_escuro_30%.jpg') }}">
+                        <img src="{{ url_for('static', filename='modo_escuro_30%.jpg') }}" alt="Modo Escuro 30%">
                     </a>
-                    <a data-fancybox="gallery" data-caption="Modo Claro 30%" href="{{ url_for('static', filename='modo_claro_30.jpg') }}">
-                        <img src="{{ url_for('static', filename='modo_claro_30.jpg') }}" alt="Modo Claro 30%">
+                    <a data-fancybox="gallery" data-caption="Modo Claro 30%" href="{{ url_for('static', filename='modo_claro_30%.jpg') }}">
+                        <img src="{{ url_for('static', filename='modo_claro_30%.jpg') }}" alt="Modo Claro 30%">
                     </a>
                 </div>
                 <label for="escuro_vs_claro_30">De 1 a 5, quanto você prefere o mapa Modo Claro 30% em relação ao Modo Escuro 30%?</label>
@@ -238,14 +239,15 @@
                     <option value="5">5 - Prefiro muito mais o Modo Claro 30%</option>
                 </select>
             </div>
+
             <div class="question">
                 <label>Comparação entre modos escuro e claro (40%):</label>
                 <div class="image-container">
-                    <a data-fancybox="gallery" data-caption="Modo Escuro 40%" href="{{ url_for('static', filename='modo_escuro_40.jpg') }}">
-                        <img src="{{ url_for('static', filename='modo_escuro_40.jpg') }}" alt="Modo Escuro 40%">
+                    <a data-fancybox="gallery" data-caption="Modo Escuro 40%" href="{{ url_for('static', filename='modo_escuro_40%.jpg') }}">
+                        <img src="{{ url_for('static', filename='modo_escuro_40%.jpg') }}" alt="Modo Escuro 40%">
                     </a>
-                    <a data-fancybox="gallery" data-caption="Modo Claro 40%" href="{{ url_for('static', filename='modo_claro_40.jpg') }}">
-                        <img src="{{ url_for('static', filename='modo_claro_40.jpg') }}" alt="Modo Claro 40%">
+                    <a data-fancybox="gallery" data-caption="Modo Claro 40%" href="{{ url_for('static', filename='modo_claro_40%.jpg') }}">
+                        <img src="{{ url_for('static', filename='modo_claro_40%.jpg') }}" alt="Modo Claro 40%">
                     </a>
                 </div>
                 <label for="escuro_vs_claro_40">De 1 a 5, quanto você prefere o mapa Modo Claro 40% em relação ao Modo Escuro 40%?</label>
@@ -257,6 +259,7 @@
                     <option value="5">5 - Prefiro muito mais o Modo Claro 40%</option>
                 </select>
             </div>
+
             <div class="question">
                 <label>Comparação entre modos escuro e claro (Sem generalização):</label>
                 <div class="image-container">
@@ -276,11 +279,13 @@
                     <option value="5">5 - Prefiro muito mais o Modo Claro</option>
                 </select>
             </div>
+
             <div class="question">
                 <button type="submit">Enviar</button>
             </div>
         </form>
     </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 </body>
