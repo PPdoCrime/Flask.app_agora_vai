@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Questionário - Comparação de Mapas</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
     <style>
         body {
             background-color: #121212;
@@ -23,22 +22,15 @@
             display: block;
             margin-bottom: 10px;
         }
-        .image-container {
-            display: flex;
-            justify-content: space-between;
-        }
-        .image-container img {
-            width: 100%;
-            height: auto;
-            margin-bottom: 10px;
-            cursor: pointer;
-        }
+        .question input[type="text"],
         .question select {
             width: 100%;
-            padding: 8px;
+            padding: 10px;
             border: 1px solid #333;
             background-color: #222;
             color: #FFF;
+            border-radius: 5px;
+            font-size: 16px;
         }
         .question button {
             padding: 10px 20px;
@@ -46,6 +38,8 @@
             color: #FFF;
             border: none;
             cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
         }
         .question button:hover {
             background-color: #444;
@@ -93,9 +87,8 @@
                 <label for="name">Primeiro Nome:</label>
                 <input type="text" id="name" name="name" required>
             </div>
-            
             <div class="question">
-                <label>Qual é o seu nível de familiaridade com leitura de mapas e generalização cartográfica?</label>
+                <label for="familiarity">Qual é o seu nível de familiaridade com leitura de mapas e generalização cartográfica?</label>
                 <select id="familiarity" name="familiarity">
                     <option value="1">1 - Muito Baixo</option>
                     <option value="2">2 - Baixo</option>
