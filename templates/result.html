@@ -35,7 +35,8 @@
         <table>
             <thead>
                 <tr>
-                    <th>Familiarity</th>
+                    <th>Nome</th>
+                    <th>Familiaridade</th>
                     <th>Escuro_vs_Escuro_30</th>
                     <th>Escuro_vs_Escuro_40</th>
                     <th>Escuro_30_vs_Escuro_40</th>
@@ -50,6 +51,7 @@
             <tbody>
                 {% for row in data %}
                 <tr>
+                    <td>{{ row.name }}</td>
                     <td>{{ row.familiarity }}</td>
                     <td>{{ row.escuro_vs_escuro_30 }}</td>
                     <td>{{ row.escuro_vs_escuro_40 }}</td>
