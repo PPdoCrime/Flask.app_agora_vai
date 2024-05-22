@@ -15,26 +15,55 @@
             margin: 0 auto;
             padding: 20px;
         }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #444;
+            text-align: left;
+        }
+        th {
+            background-color: #333;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Resultados do Questionário</h1>
-        {% for entry in data %}
-            <div class="result-entry">
-                <p><strong>Familiaridade com leitura de mapas e generalização cartográfica:</strong> {{ entry.Familiarity }}</p>
-                <p><strong>Comparação entre mapas em modo escuro (Sem generalização e 30%):</strong> {{ entry.Escuro_vs_Escuro_30 }}</p>
-                <p><strong>Comparação entre mapas em modo escuro (Sem generalização e 40%):</strong> {{ entry.Escuro_vs_Escuro_40 }}</p>
-                <p><strong>Comparação entre mapas em modo escuro (30% e 40%):</strong> {{ entry.Escuro_30_vs_Escuro_40 }}</p>
-                <p><strong>Comparação entre mapas em modo claro (Sem generalização e 30%):</strong> {{ entry.Claro_vs_Claro_30 }}</p>
-                <p><strong>Comparação entre mapas em modo claro (Sem generalização e 40%):</strong> {{ entry.Claro_vs_Claro_40 }}</p>
-                <p><strong>Comparação entre mapas em modo claro (30% e 40%):</strong> {{ entry.Claro_30_vs_Claro_40 }}</p>
-                <p><strong>Comparação entre modo escuro 30% e modo claro 30%:</strong> {{ entry.Escuro_vs_Claro_30 }}</p>
-                <p><strong>Comparação entre modo escuro 40% e modo claro 40%:</strong> {{ entry.Escuro_vs_Claro_40 }}</p>
-                <p><strong>Comparação entre modos escuro e claro (Sem generalização):</strong> {{ entry.Escuro_vs_Claro }}</p>
-                <hr>
-            </div>
-        {% endfor %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Familiarity</th>
+                    <th>Escuro_vs_Escuro_30</th>
+                    <th>Escuro_vs_Escuro_40</th>
+                    <th>Escuro_30_vs_Escuro_40</th>
+                    <th>Claro_vs_Claro_30</th>
+                    <th>Claro_vs_Claro_40</th>
+                    <th>Claro_30_vs_Claro_40</th>
+                    <th>Escuro_vs_Claro_30</th>
+                    <th>Escuro_vs_Claro_40</th>
+                    <th>Escuro_vs_Claro</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    <td>{{ row.familiarity }}</td>
+                    <td>{{ row.escuro_vs_escuro_30 }}</td>
+                    <td>{{ row.escuro_vs_escuro_40 }}</td>
+                    <td>{{ row.escuro_30_vs_escuro_40 }}</td>
+                    <td>{{ row.claro_vs_claro_30 }}</td>
+                    <td>{{ row.claro_vs_claro_40 }}</td>
+                    <td>{{ row.claro_30_vs_claro_40 }}</td>
+                    <td>{{ row.escuro_vs_claro_30 }}</td>
+                    <td>{{ row.escuro_vs_claro_40 }}</td>
+                    <td>{{ row.escuro_vs_claro }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
