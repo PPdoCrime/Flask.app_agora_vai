@@ -9,7 +9,7 @@ app = Flask(__name__)
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
 client = gspread.authorize(creds)
-sheet = client.open("NomeDaSuaPlanilha").worksheet("Resultados")
+sheet = client.open("Resultados").worksheet("Resultados")
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
