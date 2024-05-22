@@ -1,14 +1,15 @@
 from flask import Flask, render_template, request, redirect, url_for
-from pymongo import MongoClient
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
 import os
 
 app = Flask(__name__)
 
-# Configuração do MongoDB
-mongodb_uri = os.getenv('mongodb+srv://ppsramalho1505:NvJdoBqdA5L5VKlu@cluster0.hicua8w.mongodb.net/')
-client = MongoClient(mongodb_uri)
-db = client.get_database('results_db')
-results_collection = db.get_collection('results')
+# Configuração do Google Sheets
+scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
+client = gspread.authorize(creds)
+sheet = client.open("NomeDaSuaPlanilha").worksheet("Resultados")
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -25,19 +26,9 @@ def index():
             escuro_vs_claro_40 = request.form['escuro_vs_claro_40']
             escuro_vs_claro = request.form['escuro_vs_claro']
 
-            result = {
-                'familiarity': familiarity,
-                'escuro_vs_escuro_30': escuro_vs_escuro_30,
-                'escuro_vs_escuro_40': escuro_vs_escuro_40,
-                'escuro_30_vs_escuro_40': escuro_30_vs_escuro_40,
-                'claro_vs_claro_30': claro_vs_claro_30,
-                'claro_vs_claro_40': claro_vs_claro_40,
-                'claro_30_vs_claro_40': claro_30_vs_claro_40,
-                'escuro_vs_claro_30': escuro_vs_claro_30,
-                'escuro_vs_claro_40': escuro_vs_claro_40,
-                'escuro_vs_claro': escuro_vs_claro
-            }
-            results_collection.insert_one(result)
+            row = [familiarity, escuro_vs_escuro_30, escuro_vs_escuro_40, escuro_30_vs_escuro_40, claro_vs_claro_30,
+                   claro_vs_claro_40, claro_30_vs_claro_40, escuro_vs_claro_30, escuro_vs_claro_40, escuro_vs_claro]
+            sheet.append_row(row)
 
             return redirect(url_for('thank_you'))
         except Exception as e:
@@ -52,7 +43,7 @@ def thank_you():
 
 @app.route('/results')
 def results():
-    data = results_collection.find()
+    data = sheet.get_all_records()
     return render_template('results.html', data=data)
 
 if __name__ == '__main__':
