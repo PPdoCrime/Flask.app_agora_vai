@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 
 # Configuração do MongoDB
-mongodb_uri = os.getenv('MONGODB_URI')
+mongodb_uri = os.getenv('mongodb+srv://ppsramalho1505:NvJdoBqdA5L5VKlu@cluster0.hicua8w.mongodb.net/')
 client = MongoClient(mongodb_uri)
 db = client.get_database('results_db')
 results_collection = db.get_collection('results')
