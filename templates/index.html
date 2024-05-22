@@ -293,13 +293,13 @@
         </form>
     </div>
 
-      <script>
+    <script>
         $(document).ready(function() {
-            // Intercepta o evento de pressionar "Enter" nos campos de texto
-            $('input[type="text"]').keypress(function(event) {
-                if (event.keyCode === 13) { // Verifica se a tecla pressionada é o "Enter"
-                    event.preventDefault(); // Impede o comportamento padrão de envio do formulário
-                    return false; // Evita qualquer outra ação
+            // Impede o envio do formulário quando pressionar "Enter"
+            $('#questionnaireForm').on('keypress', function(e) {
+                if(e.which === 13) {
+                    e.preventDefault();
+                    return false;
                 }
             });
         });
