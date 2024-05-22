@@ -12,7 +12,7 @@
             font-family: Arial, sans-serif;
         }
         .container {
-            width: 100%;
+            width: 80%;
             margin: 0 auto;
             padding: 20px;
         }
@@ -27,18 +27,22 @@
             display: flex;
             justify-content: space-between;
         }
+        .image-container a {
+            width: 48%;
+        }
         .image-container img {
             width: 100%;
             height: auto;
             margin-bottom: 10px;
             cursor: pointer;
         }
-        .question select {
+        .question select, .question input[type="text"] {
             width: 100%;
             padding: 8px;
             border: 1px solid #333;
             background-color: #222;
             color: #FFF;
+            border-radius: 5px;
         }
         .question button {
             padding: 10px 20px;
@@ -46,6 +50,7 @@
             color: #FFF;
             border: none;
             cursor: pointer;
+            border-radius: 5px;
         }
         .question button:hover {
             background-color: #444;
@@ -90,11 +95,12 @@
         
         <form method="POST" action="/">
             <div class="question">
-                <label for="name">Primeiro Nome:</label>
+                <label for="name">Nome:</label>
                 <input type="text" id="name" name="name" required>
             </div>
+            
             <div class="question">
-                <label for="familiarity">Qual é o seu nível de familiaridade com leitura de mapas e generalização cartográfica?</label>
+                <label>Qual é o seu nível de familiaridade com leitura de mapas e generalização cartográfica?</label>
                 <select id="familiarity" name="familiarity">
                     <option value="1">1 - Muito Baixo</option>
                     <option value="2">2 - Baixo</option>
@@ -270,7 +276,7 @@
                     <a data-fancybox="gallery" data-caption="Modo Escuro" href="{{ url_for('static', filename='modo_escuro.jpg') }}">
                         <img src="{{ url_for('static', filename='modo_escuro.jpg') }}" alt="Modo Escuro">
                     </a>
-                    <a data-fancybox="gallery" data-caption="Modo Claro" href="{{ url_for('static', filename='modo_claro.jpg') }}">
+                    <a data-fancybox="gallery" data-caption="Modo                     Claro" href="{{ url_for('static', filename='modo_claro.jpg') }}">
                         <img src="{{ url_for('static', filename='modo_claro.jpg') }}" alt="Modo Claro">
                     </a>
                 </div>
@@ -294,3 +300,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 </body>
 </html>
+
+
