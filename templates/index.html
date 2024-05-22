@@ -293,6 +293,18 @@
         </form>
     </div>
 
+      <script>
+        $(document).ready(function() {
+            // Intercepta o evento de pressionar "Enter" nos campos de texto
+            $('input[type="text"]').keypress(function(event) {
+                if (event.keyCode === 13) { // Verifica se a tecla pressionada é o "Enter"
+                    event.preventDefault(); // Impede o comportamento padrão de envio do formulário
+                    return false; // Evita qualquer outra ação
+                }
+            });
+        });
+    </script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 </body>
