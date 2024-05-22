@@ -5,3 +5,5 @@ Werkzeug==2.0.2
 itsdangerous==2.0.1
 Jinja2==3.0.2
 click==8.0.3
+pymongo[srv]==3.12.1
+dnspython==2.1.0
