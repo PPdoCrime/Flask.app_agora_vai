@@ -9,7 +9,15 @@ app = Flask(__name__)
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
 client = gspread.authorize(creds)
-sheet = client.open("Resultados").worksheet("Resultados")
+
+# Nome da planilha e da aba (worksheet)
+spreadsheet_name = "NomeDaSuaPlanilha"
+worksheet_name = "Resultados"
+
+try:
+    sheet = client.open(spreadsheet_name).worksheet(worksheet_name)
+except Exception as e:
+    print(f"Erro ao acessar a planilha ou aba: {e}")
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
