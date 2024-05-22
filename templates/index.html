@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Questionário - Comparação de Mapas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
     <style>
         body {
             background-color: #121212;
@@ -22,15 +23,22 @@
             display: block;
             margin-bottom: 10px;
         }
-        .question input[type="text"],
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
         .question select {
             width: 100%;
-            padding: 10px;
+            padding: 8px;
             border: 1px solid #333;
             background-color: #222;
             color: #FFF;
-            border-radius: 5px;
-            font-size: 16px;
         }
         .question button {
             padding: 10px 20px;
@@ -38,8 +46,6 @@
             color: #FFF;
             border: none;
             cursor: pointer;
-            border-radius: 5px;
-            font-size: 16px;
         }
         .question button:hover {
             background-color: #444;
