@@ -1,30 +1,14 @@
 from flask import Flask, render_template, request, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
+from pymongo import MongoClient
 import os
 
 app = Flask(__name__)
 
-# Configuração do SQLite
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///results.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
-
-class Result(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    familiarity = db.Column(db.String(50))
-    escuro_vs_escuro_30 = db.Column(db.String(50))
-    escuro_vs_escuro_40 = db.Column(db.String(50))
-    escuro_30_vs_escuro_40 = db.Column(db.String(50))
-    claro_vs_claro_30 = db.Column(db.String(50))
-    claro_vs_claro_40 = db.Column(db.String(50))
-    claro_30_vs_claro_40 = db.Column(db.String(50))
-    escuro_vs_claro_30 = db.Column(db.String(50))
-    escuro_vs_claro_40 = db.Column(db.String(50))
-    escuro_vs_claro = db.Column(db.String(50))
-
-@app.before_first_request
-def create_tables():
-    db.create_all()
+# Configuração do MongoDB
+mongodb_uri = os.getenv('MONGODB_URI')
+client = MongoClient(mongodb_uri)
+db = client.get_database('results_db')
+results_collection = db.get_collection('results')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -41,20 +25,19 @@ def index():
             escuro_vs_claro_40 = request.form['escuro_vs_claro_40']
             escuro_vs_claro = request.form['escuro_vs_claro']
 
-            result = Result(
-                familiarity=familiarity,
-                escuro_vs_escuro_30=escuro_vs_escuro_30,
-                escuro_vs_escuro_40=escuro_vs_escuro_40,
-                escuro_30_vs_escuro_40=escuro_30_vs_escuro_40,
-                claro_vs_claro_30=claro_vs_claro_30,
-                claro_vs_claro_40=claro_vs_claro_40,
-                claro_30_vs_claro_40=claro_30_vs_claro_40,
-                escuro_vs_claro_30=escuro_vs_claro_30,
-                escuro_vs_claro_40=escuro_vs_claro_40,
-                escuro_vs_claro=escuro_vs_claro
-            )
-            db.session.add(result)
-            db.session.commit()
+            result = {
+                'familiarity': familiarity,
+                'escuro_vs_escuro_30': escuro_vs_escuro_30,
+                'escuro_vs_escuro_40': escuro_vs_escuro_40,
+                'escuro_30_vs_escuro_40': escuro_30_vs_escuro_40,
+                'claro_vs_claro_30': claro_vs_claro_30,
+                'claro_vs_claro_40': claro_vs_claro_40,
+                'claro_30_vs_claro_40': claro_30_vs_claro_40,
+                'escuro_vs_claro_30': escuro_vs_claro_30,
+                'escuro_vs_claro_40': escuro_vs_claro_40,
+                'escuro_vs_claro': escuro_vs_claro
+            }
+            results_collection.insert_one(result)
 
             return redirect(url_for('thank_you'))
         except Exception as e:
@@ -69,7 +52,7 @@ def thank_you():
 
 @app.route('/results')
 def results():
-    data = Result.query.all()
+    data = results_collection.find()
     return render_template('results.html', data=data)
 
 if __name__ == '__main__':
