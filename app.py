@@ -11,7 +11,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", sco
 client = gspread.authorize(creds)
 
 # Nome da planilha e da aba (worksheet)
-spreadsheet_name = "NomeDaSuaPlanilha"
+spreadsheet_name = "Resultados"
 worksheet_name = "Resultados"
 
 try:
