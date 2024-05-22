@@ -23,6 +23,7 @@ except Exception as e:
 def index():
     if request.method == 'POST':
         try:
+            name = request.form['name']
             familiarity = request.form['familiarity']
             escuro_vs_escuro_30 = request.form['escuro_vs_escuro_30']
             escuro_vs_escuro_40 = request.form['escuro_vs_escuro_40']
@@ -34,7 +35,7 @@ def index():
             escuro_vs_claro_40 = request.form['escuro_vs_claro_40']
             escuro_vs_claro = request.form['escuro_vs_claro']
 
-            row = [familiarity, escuro_vs_escuro_30, escuro_vs_escuro_40, escuro_30_vs_escuro_40, claro_vs_claro_30,
+            row = [name, familiarity, escuro_vs_escuro_30, escuro_vs_escuro_40, escuro_30_vs_escuro_40, claro_vs_claro_30,
                    claro_vs_claro_40, claro_30_vs_claro_40, escuro_vs_claro_30, escuro_vs_claro_40, escuro_vs_claro]
             sheet.append_row(row)
 
